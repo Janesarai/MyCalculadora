@@ -2,6 +2,7 @@ package com.example.mycalculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //se declaran text botones por id
+
         EditText numero1= findViewById(R.id.editTextNumber1);
         EditText numero2= findViewById(R.id.editTextNumber2);
 
@@ -24,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
         Button multiplicacion = findViewById(R.id.multiplicacion);
         Button division = findViewById(R.id.division);
 
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView resultado = findViewById(R.id.muestraresultado);
 
+
+        // seton clic da comportamiento
         sumar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 Integer primer = Integer.parseInt(numero1.getText().toString());
                 Integer segundo = Integer.parseInt(numero2.getText().toString());
                 Integer suma = primer + segundo;
+                resultado.setText("el resultado es"+ suma);
 
 
                 Toast.makeText(getBaseContext(), "sumaste" + suma.toString(), Toast.LENGTH_LONG).show();
@@ -56,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 Integer primer = Integer.parseInt(numero1.getText().toString());
                 Integer segundo = Integer.parseInt(numero2.getText().toString());
                 Integer resta = primer - segundo;
+                resultado.setText("el resultado es"+ resta);
 
                 Toast.makeText(getBaseContext(), "restaste", Toast.LENGTH_LONG).show();
             }
@@ -74,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             Integer primer = Integer.parseInt(numero1.getText().toString());
             Integer segundo = Integer.parseInt(numero2.getText().toString());
             Integer multiplica = primer * segundo;
+            resultado.setText("el resultado es"+ multiplica);
 
             Toast.makeText(getBaseContext(), "multiplicaste" + multiplica.toString(), Toast.LENGTH_LONG).show();
         }
@@ -96,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             }
             Integer segundo = Integer.parseInt(numero2.getText().toString());
             Integer divide = primer / segundo;
+            resultado.setText("el resultado es"+ divide);
 
             Toast.makeText(getBaseContext(), "dividiste" + divide.toString(), Toast.LENGTH_LONG).show();
 
