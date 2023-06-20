@@ -10,102 +10,89 @@
         android:id="@+id/muestraresultado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/multiplicacion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/multiplicacion"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/multiplicacion" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="162dp"
+        android:layout_width="300dp"
         android:layout_height="130dp"
         android:layout_marginTop="52dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber1"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumber1"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumber1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/baseline_calculate_24" />
 
     <EditText
         android:id="@+id/editTextNumber1"
         android:layout_width="235dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="12dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextNumber2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="272dp"
         android:ems="10"
         android:inputType="number"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/suma"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumber1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumber1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber1"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/suma"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="4dp"
         android:text="+"
-        app:layout_constraintBottom_toTopOf="@+id/resta"
         app:layout_constraintEnd_toEndOf="@+id/editTextNumber2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextNumber2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
 
     <Button
         android:id="@+id/resta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="-"
-        app:layout_constraintBottom_toTopOf="@+id/division"
         app:layout_constraintEnd_toEndOf="@+id/suma"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/suma"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
+        app:layout_constraintTop_toBottomOf="@+id/suma" />
 
     <Button
         android:id="@+id/division"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
         android:text=":"
         app:layout_constraintEnd_toEndOf="@+id/resta"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/resta"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/resta" />
 
     <Button
         android:id="@+id/multiplicacion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="132dp"
         android:text="x"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/division"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/division" />
+        app:layout_constraintStart_toStartOf="@+id/division"
+        app:layout_constraintTop_toBottomOf="@+id/division" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
