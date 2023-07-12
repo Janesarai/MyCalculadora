@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val resta = findViewById<Button>(R.id.resta)
         val multiplicacion = findViewById<Button>(R.id.multiplicacion)
         val division = findViewById<Button>(R.id.division)
-        @SuppAQWressLint("MissingInflatedId", "LocalSuppress") val resultado = findViewById<TextView>(R.id.muestraresultado)
+        val resultado = findViewById<TextView>(R.id.muestraresultado)
 
 
         // seton clic da comportamiento
@@ -31,10 +32,10 @@ class MainActivity : AppCompatActivity() {
                 return@OnClickListener
             }
             val primer = numero1.text.toString().toInt()
-            val segundo = numero2.text.toString().toInt()
-            val suma = primer + segundo
-            resultado.text = "el resultado es$suma"
-            Toast.makeText(baseContext, "sumaste$suma", Toast.LENGTH_LONG).show()
+            val segundoo = numero2.text.toString().toInt()
+            val resultadoSuma = primer + segundoo
+            resultado.text = "el resultado es$resultadoSuma"
+            Toast.makeText(baseContext, "sumaste$resultadoSuma", Toast.LENGTH_LONG).show()
         })
         resta.setOnClickListener(View.OnClickListener {
             if (numero1.text.toString().trim { it <= ' ' }.isEmpty() || numero2.text.toString().trim { it <= ' ' }.isEmpty()) {
@@ -43,8 +44,8 @@ class MainActivity : AppCompatActivity() {
             }
             val primer = numero1.text.toString().toInt()
             val segundo = numero2.text.toString().toInt()
-            val resta = primer - segundo
-            resultado.text = "el resultado es$resta"
+            val resultadoResta = primer - segundo
+            resultado.text = "el resultado es$resultadoResta"
             Toast.makeText(baseContext, "restaste", Toast.LENGTH_LONG).show()
         })
         multiplicacion.setOnClickListener(View.OnClickListener {
@@ -75,3 +76,4 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
