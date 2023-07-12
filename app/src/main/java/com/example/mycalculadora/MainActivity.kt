@@ -1,116 +1,77 @@
-package com.example.mycalculadora;
+package com.example.mycalculadora
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
         //se declaran text botones por id
-
-        EditText numero1= findViewById(R.id.editTextNumber1);
-        EditText numero2= findViewById(R.id.editTextNumber2);
-
-        Button sumar = findViewById(R.id.suma);
-        Button resta = findViewById(R.id.resta);
-        Button multiplicacion = findViewById(R.id.multiplicacion);
-        Button division = findViewById(R.id.division);
-
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView resultado = findViewById(R.id.muestraresultado);
+        val numero1 = findViewById<EditText>(R.id.editTextNumber1)
+        val numero2 = findViewById<EditText>(R.id.editTextNumber2)
+        val sumar = findViewById<Button>(R.id.suma)
+        val resta = findViewById<Button>(R.id.resta)
+        val multiplicacion = findViewById<Button>(R.id.multiplicacion)
+        val division = findViewById<Button>(R.id.division)
+        @SuppAQWressLint("MissingInflatedId", "LocalSuppress") val resultado = findViewById<TextView>(R.id.muestraresultado)
 
 
         // seton clic da comportamiento
-        sumar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(numero1.getText().toString().trim().isEmpty() || numero2.getText().toString().trim().isEmpty()){
-                    Toast.makeText(getBaseContext(),  "faltan numeros a ingresar " , Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Integer primer = Integer.parseInt(numero1.getText().toString());
-                Integer segundo = Integer.parseInt(numero2.getText().toString());
-                Integer suma = primer + segundo;
-                resultado.setText("el resultado es"+ suma);
-
-
-                Toast.makeText(getBaseContext(), "sumaste" + suma.toString(), Toast.LENGTH_LONG).show();
+        sumar.setOnClickListener(View.OnClickListener {
+            if (numero1.text.toString().trim { it <= ' ' }.isEmpty() || numero2.text.toString().trim { it <= ' ' }.isEmpty()) {
+                Toast.makeText(baseContext, "faltan numeros a ingresar ", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
             }
-        });
-
-
-        resta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(numero1.getText().toString().trim().isEmpty() || numero2.getText().toString().trim().isEmpty()){
-                    Toast.makeText(getBaseContext(),  "faltan numeros a ingresar " , Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Integer primer = Integer.parseInt(numero1.getText().toString());
-                Integer segundo = Integer.parseInt(numero2.getText().toString());
-                Integer resta = primer - segundo;
-                resultado.setText("el resultado es"+ resta);
-
-                Toast.makeText(getBaseContext(), "restaste", Toast.LENGTH_LONG).show();
+            val primer = numero1.text.toString().toInt()
+            val segundo = numero2.text.toString().toInt()
+            val suma = primer + segundo
+            resultado.text = "el resultado es$suma"
+            Toast.makeText(baseContext, "sumaste$suma", Toast.LENGTH_LONG).show()
+        })
+        resta.setOnClickListener(View.OnClickListener {
+            if (numero1.text.toString().trim { it <= ' ' }.isEmpty() || numero2.text.toString().trim { it <= ' ' }.isEmpty()) {
+                Toast.makeText(baseContext, "faltan numeros a ingresar ", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
             }
-        });
-
-        multiplicacion.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-            if(numero1.getText().toString().trim().isEmpty() || numero2.getText().toString().trim().isEmpty()){
-                Toast.makeText(getBaseContext(),  "faltan numeros a ingresar " , Toast.LENGTH_SHORT).show();
-                return;
+            val primer = numero1.text.toString().toInt()
+            val segundo = numero2.text.toString().toInt()
+            val resta = primer - segundo
+            resultado.text = "el resultado es$resta"
+            Toast.makeText(baseContext, "restaste", Toast.LENGTH_LONG).show()
+        })
+        multiplicacion.setOnClickListener(View.OnClickListener {
+            if (numero1.text.toString().trim { it <= ' ' }.isEmpty() || numero2.text.toString().trim { it <= ' ' }.isEmpty()) {
+                Toast.makeText(baseContext, "faltan numeros a ingresar ", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
             }
-
-            Integer primer = Integer.parseInt(numero1.getText().toString());
-            Integer segundo = Integer.parseInt(numero2.getText().toString());
-            Integer multiplica = primer * segundo;
-            resultado.setText("el resultado es"+ multiplica);
-
-            Toast.makeText(getBaseContext(), "multiplicaste" + multiplica.toString(), Toast.LENGTH_LONG).show();
-        }
-
-        });
-
-        division.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            if(numero1.getText().toString().trim().isEmpty() || numero2.getText().toString().trim().isEmpty()){
-                Toast.makeText(getBaseContext(),  "faltan numeros a ingresar " , Toast.LENGTH_SHORT).show();
-                return;
+            val primer = numero1.text.toString().toInt()
+            val segundo = numero2.text.toString().toInt()
+            val multiplica = primer * segundo
+            resultado.text = "el resultado es$multiplica"
+            Toast.makeText(baseContext, "multiplicaste$multiplica", Toast.LENGTH_LONG).show()
+        })
+        division.setOnClickListener(View.OnClickListener {
+            if (numero1.text.toString().trim { it <= ' ' }.isEmpty() || numero2.text.toString().trim { it <= ' ' }.isEmpty()) {
+                Toast.makeText(baseContext, "faltan numeros a ingresar ", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
             }
-
-            Integer primer = Integer.parseInt(numero1.getText().toString());
-            if(Integer.parseInt(numero2.getText().toString())==0){
-                Toast.makeText(getBaseContext(), "no se puede dividir por 0: " ,Toast.LENGTH_SHORT).show();
-                return;
+            val primer = numero1.text.toString().toInt()
+            if (numero2.text.toString().toInt() == 0) {
+                Toast.makeText(baseContext, "no se puede dividir por 0: ", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
             }
-            Integer segundo = Integer.parseInt(numero2.getText().toString());
-            Integer divide = primer / segundo;
-            resultado.setText("el resultado es"+ divide);
-
-            Toast.makeText(getBaseContext(), "dividiste" + divide.toString(), Toast.LENGTH_LONG).show();
-
-            }
-        });
-
+            val segundo = numero2.text.toString().toInt()
+            val divide = primer / segundo
+            resultado.text = "el resultado es$divide"
+            Toast.makeText(baseContext, "dividiste$divide", Toast.LENGTH_LONG).show()
+        })
     }
 }
